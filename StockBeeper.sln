@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockBeeper", "StockBeeper\StockBeeper.csproj", "{0203F8A6-E074-4920-88B0-D28D5EDC487D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0203F8A6-E074-4920-88B0-D28D5EDC487D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0203F8A6-E074-4920-88B0-D28D5EDC487D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0203F8A6-E074-4920-88B0-D28D5EDC487D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0203F8A6-E074-4920-88B0-D28D5EDC487D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F02AAD61-26BB-4193-B957-9C2B1C33E782}
+	EndGlobalSection
+EndGlobal
