@@ -21,46 +21,58 @@ namespace StockBeeper
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string filePath = @"Local do arquivo .xlsx";
-
-            if (!File.Exists(filePath))
+            if (string.IsNullOrWhiteSpace(txtCodigo.Text))
             {
-                MessageBox.Show("O arquivo de registros não foi encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, preencha o campo código.", "Campo obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string codigoConsulta = txtCodigo.Text;
+            string filePath = @"Local do arquivo .xlsx";
 
-            using (var workbook = new XLWorkbook(filePath))
+            try
             {
-                var worksheet = workbook.Worksheet("Registro");
-
-                DataTable dataTable = new DataTable();
-                dataTable.Columns.Add("Código");
-                dataTable.Columns.Add("Nome");
-                dataTable.Columns.Add("Distribuidora");
-                dataTable.Columns.Add("Data");
-
-                var rows = worksheet.RowsUsed().Where(row => row.Cell(1).GetString() == codigoConsulta);
-
-                if (rows.Any())
+                if (!File.Exists(filePath))
                 {
-                    foreach (var row in rows)
+                    MessageBox.Show("O arquivo de registros não foi encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string codigoConsulta = txtCodigo.Text;
+
+                using (var workbook = new XLWorkbook(filePath))
+                {
+                    var worksheet = workbook.Worksheet("Registro");
+
+                    DataTable dataTable = new DataTable();
+                    dataTable.Columns.Add("Código");
+                    dataTable.Columns.Add("Nome");
+                    dataTable.Columns.Add("Distribuidora");
+                    dataTable.Columns.Add("Data");
+
+                    var rows = worksheet.RowsUsed().Where(row => row.Cell(1).GetString() == codigoConsulta);
+
+                    if (rows.Any())
                     {
-                        dataTable.Rows.Add(
-                            row.Cell(1).GetString(),
-                            row.Cell(2).GetString(),
-                            row.Cell(3).GetString(),
-                            row.Cell(4).GetString()
-                        );
-                    }
+                        foreach (var row in rows)
+                        {
+                            dataTable.Rows.Add(
+                                row.Cell(1).GetString(),
+                                row.Cell(2).GetString(),
+                                row.Cell(3).GetString(),
+                                row.Cell(4).GetString()
+                            );
+                        }
 
-                    dataGridViewConsulta.DataSource = dataTable;
+                        dataGridViewConsulta.DataSource = dataTable;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Código não encontrado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Código não encontrado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show($"Erro ao consultar os dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
