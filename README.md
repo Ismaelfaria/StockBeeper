@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <img src="stock.gif" alt="Descrição do GIF" width="200">
+  <img src="StockBeeper/stock.gif" alt="Descrição do GIF" width="200">
   <br>
   Nome do Projeto
   <br>
