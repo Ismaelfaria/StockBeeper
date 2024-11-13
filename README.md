@@ -2,9 +2,6 @@
 <h1 align="center">
   <br>
   <img src="StockBeeper/stock.gif" alt="Descrição do GIF" width="200">
-  <br>
-  Nome do Projeto
-  <br>
 </h1>
 
 <h4 align="center">O StockBeep é uma aplicação projetada para facilitar o gerenciamento de produtos em estoque usando leitura de código de barras.</h4>
