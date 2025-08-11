@@ -35,5 +35,10 @@ namespace StockBeeper
             dataGridViewConsulta.DataSource = result;
             }
         }
+
+        private void painel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

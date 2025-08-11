@@ -46,6 +46,7 @@
             this.painel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.painel.TabIndex = 0;
             this.painel.TabStop = false;
+            this.painel.Click += new System.EventHandler(this.painel_Click);
             // 
             // btnConsultar
             // 
